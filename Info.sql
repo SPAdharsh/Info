@@ -1,0 +1,17 @@
+use sqltcl;
+Create Table Info(id int,name varchar(10));
+Insert Into Info (id,name)values(1,"Ram"),(2,"Milan"),(3,"Appu"),(4,"Anil");
+select * from Info;
+Insert Into Info Values (5,"Rina");
+commit;
+Update Info Set name="Abhiram" Where id="5";
+savepoint A;
+insert into Info values(6,"Alex");
+savepoint B;
+select * from Info;
+rollback to B;
+select * from Info;
+rollback to A;
+select * from Info;
+Delete From Info;
+Drop Table Info;
